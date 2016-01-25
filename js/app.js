@@ -1,51 +1,37 @@
-commit
-
-// Enemies our player must avoid
-
+'use strict';
 var Enemy = function(x, y, speed) {
+	this.speed = speed;
+	this.x = 400;
+	this.y = 400;
+	this.sprite = 'images/enemy-bug.png';
+};
+
+Enemy.prototype.update = function(dt) {
+	this.x += this.speed * dt;
+	if (this.x > 100) {
+		this.x = 100;
+	}
+};
+
+Enemy.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+var Player = function(x, y, speed) {
 	this.speed = speed;
 	this.x = x;
 	this.y = y;
-    this.sprite = 'images/enemy-bug.png'; 
-	this.water = 'images/water-block.png';
-	this.grass = 'images/grass-block.png';
-	this.stone = 'images/stone-block.png';
-};
-
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
-	this.x += this.speed * dt;
-	if (this.x > 505) {
-		this.x = 606;
-	}
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-};
-
-
-// Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite));
-};
-
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-var Player = function() {
 	this.player = 'images/char-boy.png';
-	this.player = 'images/char-cat-girl.png';
-	this.player = 'images/char-horn-girl.png';
-	this.player = 'images/char-princess-girl.png';	
 };
 
-Player.prototype.update = function () {
+var Player 
+
+Player.prototype.update = function() {
 	
 };
 
 Player.prototype.render = function() {
-	ctx.drawImage(Resources.get(this.boy), this.cat-girl, this.horn-girl, this.pink-girl, this.princess.girl);	
+	ctx.drawImage(Resources.get(this.player), this.x, this.y);	
 
 };
 Player.prototype.handleInput = function (keys) {
@@ -55,17 +41,11 @@ Player.prototype.handleInput = function (keys) {
 		break;
 	}
 	
-}
+};
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-var allEnemies = [new Enemy ("water"), new Enemy("stone"), new Enemy("grass"), new Enemy("enemy-bug")];
-// Place the player object in a variable called player
-var player = new Player();
+var allEnemies = [new Enemy (400, 400), new Enemy(300, 300), new Enemy(200, 200), new Enemy(100, 100)];
+var player = new Player(200, 430);
 
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
@@ -76,5 +56,3 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
-
