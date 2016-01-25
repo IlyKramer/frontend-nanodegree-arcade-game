@@ -1,15 +1,15 @@
 'use strict';
 var Enemy = function(x, y, speed) {
 	this.speed = speed;
-	this.x = 400;
-	this.y = 400;
+	this.x = x;
+	this.y = y;
 	this.sprite = 'images/enemy-bug.png';
 };
 
 Enemy.prototype.update = function(dt) {
 	this.x += this.speed * dt;
-	if (this.x > 100) {
-		this.x = 100;
+	if (this.x > 500) {
+		this.x = -100;
 	}
 };
 
@@ -35,15 +35,21 @@ Player.prototype.render = function() {
 
 };
 Player.prototype.handleInput = function (keys) {
-	switch(keys) {
-	case 'left' :
-		this.x = this.x - 83;
+	console.log('keys', keys);
+		switch(keys) {
+			case 'left' : if (this.x > 100) { this.x = this.x - 83;
+				
+			}  
+		case 'right':
+		case 'up' :
+		case 'down':
 		break;
 	}
 	
 };
 
-var allEnemies = [new Enemy (400, 400), new Enemy(300, 300), new Enemy(200, 200), new Enemy(100, 100)];
+var allEnemies = [new Enemy (400, 400, 125), new Enemy(300, 300, 126), new Enemy(200, 200, 127), new Enemy(100, 100, 128)];
+console.log(allEnemies);
 var player = new Player(200, 430);
 
 document.addEventListener('keyup', function(e) {
