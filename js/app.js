@@ -1,4 +1,5 @@
 'use strict';
+
 var Enemy = function(x, y, speed) {
 	this.speed = speed;
 	this.x = x;
@@ -24,10 +25,8 @@ var Player = function(x, y, speed) {
 	this.player = 'images/char-boy.png';
 };
 
-var Player 
-
 Player.prototype.update = function() {
-	
+
 };
 
 Player.prototype.render = function() {
@@ -38,12 +37,11 @@ Player.prototype.handleInput = function (keys) {
 	console.log('keys', keys);
 		switch(keys) {
 			case 'left' : if (this.x > 100) { this.x = this.x - 83;
-				
+				break;		
 			}  
-		case 'right':
-		case 'up' :
-		case 'down':
-		break;
+		case 'right': 
+	case 'up': 
+case 'down': 
 	}
 	
 };
@@ -62,3 +60,8 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
+
+
+

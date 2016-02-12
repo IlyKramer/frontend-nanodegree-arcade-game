@@ -1,18 +1,9 @@
-/* Resources.js
- * This is simple an image loading utility. It eases the process of loading
- * image files so that they can be used within your game. It also includes
- * a simple "caching" layer so it will reuse cached images if you attempt
- * to load the same image multiple times.
- */
 (function() {
-    var resourceCache = {};
+    var resourceCache = {
+		'key': 'images/bug.png'};
     var loading = [];
     var readyCallbacks = [];
 
-    /* This is the publicly accessible image loading function. It accepts
-     * an array of strings pointing to image files or a string for a single
-     * image. It will then call our private image loading function accordingly.
-     */
     function load(urlOrArr) {
         if(urlOrArr instanceof Array) {
             /* If the developer passed in an array of images
