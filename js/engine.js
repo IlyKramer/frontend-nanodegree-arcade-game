@@ -47,6 +47,7 @@ var Engine = (function(global) {
          */
         update(dt);
         render();
+		
 
         /* Set our lastTime variable which is used to determine the time delta
          * for the next time this function is called.
@@ -80,21 +81,15 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
-    }
 
-    /* This is called by the update function  and loops through all of the
-     * objects within your allEnemies array as defined in app.js and calls
-     * their update() methods. It will then call the update function for your
-     * player object. These update methods should focus purely on updating
-     * the data/properties related to  the object. Do your drawing in your
-     * render methods.
-     */
+    }
+ 
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
         player.update();
+		enemy.checkCollisions();
     }
 
     function render() {
