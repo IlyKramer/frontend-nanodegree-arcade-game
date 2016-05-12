@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+||||||| merged common ancestors
+/* Resources.js
+ * This is simple an image loading utility. It eases the process of loading
+ * image files so that they can be used within your game. It also includes
+ * a simple "caching" layer so it will reuse cached images if you attempt
+ * to load the same image multiple times.
+ */
+=======
+/* Resources.js
+ * This is simply an image loading utility. It eases the process of loading
+ * image files so that they can be used within your game. It also includes
+ * a simple "caching" layer so it will reuse cached images if you attempt
+ * to load the same image multiple times.
+ */
+>>>>>>> 5a526c0c6d9a69d8dbb45f32546b5d0068abdb8b
 (function() {
     var resourceCache = {
 		'key': 'images/bug.png'};
@@ -54,14 +70,14 @@
 
             /* Set the initial cache value to false, this will change when
              * the image's onload event handler is called. Finally, point
-             * the images src attribute to the passed in URL.
+             * the image's src attribute to the passed in URL.
              */
             resourceCache[url] = false;
             img.src = url;
         }
     }
 
-    /* This is used by developer's to grab references to images they know
+    /* This is used by developers to grab references to images they know
      * have been previously loaded. If an image is cached, this functions
      * the same as calling load() on that URL.
      */
@@ -70,7 +86,7 @@
     }
 
     /* This function determines if all of the images that have been requested
-     * for loading have in fact been completed loaded.
+     * for loading have in fact been properly loaded.
      */
     function isReady() {
         var ready = true;
