@@ -1,13 +1,12 @@
-(function () { }());
-
+(function () {
+   'use strict';
+}());
 var Enemy = function(x, y, speed) {
 	this.speed = speed;
 	this.x = x;
 	this.y = y;
 	this.sprite = 'images/enemy-bug.png';
 };
-
-
 Enemy.prototype.update = function(dt) {
 	this.x += this.speed * dt;
 	if (this.x > 500) {
@@ -87,3 +86,5 @@ document.addEventListener('keyup',
 		};
 		player.handleInput(allowedKeys[e.keyCode]);
 	});
+
+	
