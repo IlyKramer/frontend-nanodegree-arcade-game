@@ -1,4 +1,4 @@
-(function() {
+function() {
     var resourceCache = {
 		'key': 'images/bug.png'};
     var loading = [];
