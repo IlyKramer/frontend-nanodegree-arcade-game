@@ -80,7 +80,6 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
     }
 
     /* This is called by the update function  and loops through all of the
@@ -102,12 +101,12 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/water-block.png',   
-                'images/stone-block.png',   
-                'images/stone-block.png',   
-                'images/stone-block.png',   
-                'images/grass-block.png',   
-                'images/grass-block.png'    
+                'images/water-block.png',
+                'images/stone-block.png',
+                'images/stone-block.png',
+                'images/stone-block.png',
+                'images/grass-block.png',
+                'images/grass-block.png'
             ],
             numRows = 6,
             numCols = 5,
@@ -164,4 +163,4 @@ var Engine = (function(global) {
      * from within their app.js files.
      */
     global.ctx = ctx;
-})(this); 
+})(this);
